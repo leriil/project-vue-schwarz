@@ -6,6 +6,9 @@ data:{
 methods:{
 	changeTitle: function(event){
 		this.title=event.target.value;
+	},
+	sayGoodbye: function(){
+		return 'sayGoodbye';
 	}
 }
 });
