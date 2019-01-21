@@ -7,8 +7,10 @@ methods:{
 	changeTitle: function(event){
 		this.title=event.target.value;
 	},
+	// to get access to properties we use this keyword, 
+	// it doesn't work without it
 	sayGoodbye: function(){
-		return 'sayGoodbye';
+		return this.title;
 	}
 }
 });
