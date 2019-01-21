@@ -6,15 +6,20 @@
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<title>Vue lessons</title>
 </head>
+
 <body>
 	<div id="app">
 		<!-- we can't use curly braces inside html elements, only where a text usually appears, if we still need to bind attributes, we should use v-bind -->
-	<p> {{title}} - <a v-bind:href="link">Google</a></p>
+		<!-- If we don't want the value to be updated later and only be rendered once, we use a v-once directive -->
+		<p v-html="anotherLink"> </p>
+	<p v-once> {{title}} - <a v-bind:href="link">Gooogle</a></p>
 	<input type="text" v-on:input="changeTitle">
 	<button v-on:click="changeTitle">change title</button>
 	<!-- we can use a method in curly brackets here
 	because it returns a String value -->
 	<p> {{ sayGoodbye() }} </p>
+	<button v-on:click="increase">Increase counter</button>
+	<p> {{ counter }} </p>
 </div>
 <script src="js/main.js" ></script>
 </body>
