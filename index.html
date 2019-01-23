@@ -16,7 +16,12 @@
 	<p v-if="show">Can you see me? <span>Hello!</span></p>
 	<!-- v-else follows v-if and works if the condition in v-if is false -->
 	<p v-else>Now you see me instead!</p>
+<!-- this is a html5 tag. It doesn't get rendered in the DOM. It can be used to group elements and assign a common condition to them -->
 
+<template v-if="show">
+	<h1>Header</h1>
+	<p>Inside a template</p>
+</template>
 </div>
 <script src="js/main.js" ></script>
 </body>
