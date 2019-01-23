@@ -7,7 +7,8 @@ data:{
 	link: 'http://google.com',
 	anotherLink: '<a href="http://google.com">Google</a>',
     counter: 0,
-	attachRed: false},
+	attachRed: false,
+	color: 'green'},
     // are executed no matter what
     //the result is not cached
 methods:{

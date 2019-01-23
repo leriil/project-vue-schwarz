@@ -33,6 +33,10 @@ the values are 1 name of class, 2 true/false parameter -->
 	<div class="demo" 
 	@click="attachRed=!attachRed" :class="{red: attachRed}"></div>
 	<div class="demo" @click="attachRed=!attachRed" :class="divClasses"></div>
+	<!-- attaching multiple colors using the array, using objects  -->
+
+	<div class="demo" :class="[color,{red: attachRed}]"></div>
+	<input type="text" v-model="color">
 
 </div>
 <script src="js/main.js" ></script>
