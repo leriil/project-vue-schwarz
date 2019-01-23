@@ -20,5 +20,6 @@ methods:{
 	increase: function(){
 		this.counter++;
 	}
+	// another comment
 }
 });
