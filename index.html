@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <!-- here we practise vue.js -->
 <html lang="en">
 <head>
@@ -36,7 +36,12 @@ the values are 1 name of class, 2 true/false parameter -->
 	<!-- attaching multiple colors using the array, using objects  -->
 
 	<div class="demo" :class="[color,{red: attachRed}]"></div>
+	<!-- we can define style inside the element if we change only color -->
+	<div class="demo" :style="{backgroundColor: color}"></div>
+	<!-- we can define a style in a computed object -->
+	<div class="demo" :style="myStyle"></div>
 	<input type="text" v-model="color">
+	<input type="text" v-model="width">
 
 </div>
 <script src="js/main.js" ></script>

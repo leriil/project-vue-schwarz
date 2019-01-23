@@ -8,7 +8,8 @@ data:{
 	anotherLink: '<a href="http://google.com">Google</a>',
     counter: 0,
 	attachRed: false,
-	color: 'green'},
+	color: 'green',
+	width: 100 },
     // are executed no matter what
     //the result is not cached
 methods:{
@@ -41,6 +42,12 @@ computed:{
 			red: this.attachRed,
 			blue: !this.attachRed
 		}
+	},
+	myStyle: function(){
+		return {
+			backgroundColor: this.color,
+			width: this.width +'px'
+		};
 	}
 },
 // another object apart from data, methods etc.
