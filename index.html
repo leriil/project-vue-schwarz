@@ -13,13 +13,17 @@
 		<!-- If we don't want the value to be updated later and only be rendered once, we use a v-once directive -->
 		<p v-html="anotherLink"> </p>
 	<p v-once> {{title}} - <a v-bind:href="link">Gooogle</a></p>
-	<input type="text" v-on:input="changeTitle">
+	<!-- 2 way data binding -->
+	<!-- The name from data is displayed at first but the user can change it, and his own name appeares. Once the page is refreshed, the name from data is back again -->
+	<input type="text" v-model="name">
+	<p>This is the name the user defined: {{name}} </p>
 	<button v-on:click="changeTitle">change title</button>
 	<!-- we can use a method in curly brackets here
 	because it returns a String value -->
 	<p> {{ sayGoodbye() }} </p>
-	<button v-on:click="increase">Increase counter</button>
-	<p> {{ counter }} </p>
+	<button v-on:click="increase(2)">Increase counter</button>
+	<p>Counter: {{ counter }} </p>
+	<p> Output: {{ output }} </p>
 </div>
 <script src="js/main.js" ></script>
 </body>

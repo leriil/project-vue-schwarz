@@ -2,10 +2,13 @@
 new Vue({
 el:'#app',
 data:{
+	name: 'Max',
 	title: 'Hello!',
 	link: 'http://google.com',
 	anotherLink: '<a href="http://google.com">Google</a>',
     counter: 0},
+    // are executed no matter what
+    //the result is not cached
 methods:{
 	changeTitle: function(event){
 		this.title=event.target.value;
@@ -17,9 +20,17 @@ methods:{
 		this.title='Hello you';
 		return this.title;
 	},
-	increase: function(){
-		this.counter++;
+	increase: function(step){
+		this.counter+=step;
 	}
-	// another comment
+},
+// is used like a property not a function
+// are calculated only if the value of counter changes
+//it means that the result is cached
+computed:{
+	output: function(){
+		return this.counter>5?'Greater than 5': 'Less than 5';
+
+	}
 }
 });
