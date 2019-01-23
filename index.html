@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="css/style.css">
 	<title>Vue lessons</title>
 </head>
 
@@ -29,9 +30,9 @@
 <!-- swich the value -->
 <!-- :class is combined with class by Vuejs later
 the values are 1 name of class, 2 true/false parameter -->
-	<div class="demo" @click="attachRed!=attachRed" :class="{red: attachRed}"></div>
-	<div class="demo"></div>
-	<div class="demo"></div>
+	<div class="demo" 
+	@click="attachRed=!attachRed" :class="{red: attachRed}"></div>
+	<div class="demo" @click="attachRed=!attachRed" :class="divClasses"></div>
 
 </div>
 <script src="js/main.js" ></script>

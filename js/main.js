@@ -6,7 +6,8 @@ data:{
 	title: 'Hello!',
 	link: 'http://google.com',
 	anotherLink: '<a href="http://google.com">Google</a>',
-    counter: 0},
+    counter: 0,
+	attachRed: false},
     // are executed no matter what
     //the result is not cached
 methods:{
@@ -33,6 +34,12 @@ computed:{
 	output: function(){
 		return this.counter>5?'Greater than 5': 'Less than 5';
 
+	},
+	divClasses: function(){
+		return {
+			red: this.attachRed,
+			blue: !this.attachRed
+		}
 	}
 },
 // another object apart from data, methods etc.
@@ -44,6 +51,8 @@ watch:{
 // (this references a Vuejs object here)
 	counter: function(value){
 		var vm = this;
+		// this is the reserved function
+		// the function inside is a callback function
 		setTimeout(function(){
 			vm.counter = 0;
 		},2000);
