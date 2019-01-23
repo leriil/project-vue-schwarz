@@ -12,7 +12,8 @@
 		<!-- we can't use curly braces inside html elements, only where a text usually appears, if we still need to bind attributes, we should use v-bind -->
 		<!-- If we don't want the value to be updated later and only be rendered once, we use a v-once directive -->
 		<p v-html="anotherLink"> </p>
-	<p v-once> {{title}} - <a v-bind:href="link">Gooogle</a></p>
+		<!-- instead of v-bind:href -->
+	<p v-once> {{title}} - <a :href="link">Gooogle</a></p>
 	<!-- 2 way data binding -->
 	<!-- The name from data is displayed at first but the user can change it, and his own name appeares. Once the page is refreshed, the name from data is back again -->
 	<input type="text" v-model="name">
@@ -21,7 +22,8 @@
 	<!-- we can use a method in curly brackets here
 	because it returns a String value -->
 	<p> {{ sayGoodbye() }} </p>
-	<button v-on:click="increase(2)">Increase counter</button>
+	<!-- a shorter way on whiting v-on: -->
+	<button @click="increase(2)">Increase counter</button>
 	<p>Counter: {{ counter }} </p>
 	<p> Output: {{ output }} </p>
 </div>
