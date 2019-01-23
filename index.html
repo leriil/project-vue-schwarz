@@ -12,7 +12,7 @@
 	<div id="app">
 		<button @click="show=!show">Switch</button>
 	<p >You can see me!</p>
-	<!-- we can display elements conditionally. To check numerous condiions use more v-ifs. Nested elements are also affected.-->
+	<!-- we can display elements conditionally. To check numerous condiions use more v-ifs. Nested elements are also affected. v-if either adds an element of removes it from the DOM-->
 	<p v-if="show">Can you see me? <span>Hello!</span></p>
 	<!-- v-else follows v-if and works if the condition in v-if is false -->
 	<p v-else>Now you see me instead!</p>
@@ -22,6 +22,8 @@
 	<h1>Header</h1>
 	<p>Inside a template</p>
 </template>
+<!-- to hide an element, but not remove it from the DOM, use v-show. It changes the style to display: none -->
+<p v-show="show">I am hidden but not removed from the DOM</p>
 </div>
 <script src="js/main.js" ></script>
 </body>
