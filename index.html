@@ -27,6 +27,10 @@
 
 <!-- this directive outputs an unordered list of ingredients . If we want to display an index too, we write (i,index) instead of just i -->
 <ul>
+	<li v-for="(i,index) in ingredients" :key="i">{{ i }} ({{ index }})</li>
+</ul>
+<hr>
+<ul>
 	<li v-for="(i,index) in ingredients">{{ i }} ({{ index }})</li>
 </ul>
 <hr>
@@ -61,6 +65,14 @@
 	<h1>{{index}}</h1>
 	<p>{{i}}</p>
 </template>
+<hr>
+<p>Loop through numbers 1-10
+</p>
+<span v-for="n in 10"> {{n}}</span>
+
+<hr>
+<p>Adding elements to the list</p>
+<button @click="ingredients.push('lemon')">Add lemon</button>
 </div>
 <script src="js/main.js" ></script>
 </body>
