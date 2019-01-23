@@ -26,6 +26,13 @@
 	<button @click="increase(2)">Increase counter</button>
 	<p>Counter: {{ counter }} </p>
 	<p> Output: {{ output }} </p>
+<!-- swich the value -->
+<!-- :class is combined with class by Vuejs later
+the values are 1 name of class, 2 true/false parameter -->
+	<div class="demo" @click="attachRed!=attachRed" :class="{red: attachRed}"></div>
+	<div class="demo"></div>
+	<div class="demo"></div>
+
 </div>
 <script src="js/main.js" ></script>
 </body>
