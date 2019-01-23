@@ -40,6 +40,8 @@ the values are 1 name of class, 2 true/false parameter -->
 	<div class="demo" :style="{backgroundColor: color}"></div>
 	<!-- we can define a style in a computed object -->
 	<div class="demo" :style="myStyle"></div>
+	<!-- style using array of styles -->
+	<div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
 	<input type="text" v-model="color">
 	<input type="text" v-model="width">
 
