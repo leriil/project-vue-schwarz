@@ -2,6 +2,11 @@
 new Vue({
 	el: '#app',
 	data: {
-		show: true
+		show: true,
+		ingredients:['meat', 'fruit','cookies'],
+		persons:[
+			{name:'Max', age: 21, student: true	},
+			{name:'Julia', age: 30, student: false}	
+		]
 	}
 });

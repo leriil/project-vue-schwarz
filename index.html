@@ -24,6 +24,43 @@
 </template>
 <!-- to hide an element, but not remove it from the DOM, use v-show. It changes the style to display: none -->
 <p v-show="show">I am hidden but not removed from the DOM</p>
+
+<!-- this directive outputs an unordered list of ingredients . If we want to display an index too, we write (i,index) instead of just i -->
+<ul>
+	<li v-for="(i,index) in ingredients">{{ i }} ({{ index }})</li>
+</ul>
+<hr>
+<ul>
+	<li v-for="person in persons">{{person.name}}</li>
+</ul>
+<hr>
+<p>Looping through properties of objects</p>
+<ul>
+	<li v-for="person in persons">
+		<span v-for="property in person">{{property}} </span>
+	</li>
+</ul>
+<hr>
+<p>Looping through value-key pairs</p>
+<ul>
+	<li v-for="person in persons">
+		<div v-for="(value, key) in person">{{key}} : {{value}} </div>
+	</li>
+</ul>
+<hr>
+<hr>
+<p>Looping through value-key with indexes</p>
+<ul>
+	<li v-for="person in persons">
+		<div v-for="(value, key, index) in person">{{index}} : {{key}} : {{value}} </div>
+	</li>
+</ul>
+<hr>
+<!-- if we want to use the values outside the ul , we can use a template -->
+<template v-for="(i, index) in ingredients">
+	<h1>{{index}}</h1>
+	<p>{{i}}</p>
+</template>
 </div>
 <script src="js/main.js" ></script>
 </body>
