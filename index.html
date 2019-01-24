@@ -4,76 +4,72 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="css/foundation.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	
 	<title>Vue lessons</title>
 </head>
 
 <body>
 	<div id="app">
-		<button @click="show=!show">Switch</button>
-	<p >You can see me!</p>
-	<!-- we can display elements conditionally. To check numerous condiions use more v-ifs. Nested elements are also affected. v-if either adds an element of removes it from the DOM-->
-	<p v-if="show">Can you see me? <span>Hello!</span></p>
-	<!-- v-else follows v-if and works if the condition in v-if is false -->
-	<p v-else>Now you see me instead!</p>
-<!-- this is a html5 tag. It doesn't get rendered in the DOM. It can be used to group elements and assign a common condition to them -->
+		<section class="row text-center">
+      <div class="small-6 columns">
+        <h1 class="text-center">YOU</h1>
+        <div class="healthbar">
+          <div
+            class="healthbar text-center"
+            style="background-color: green; margin: 0; color: white;"
+            :style="{width: playerHealth + '%'}">
+            {{ playerHealth }}
+          </div>
+        </div>
+      </div>
+      <div class="small-6 columns">
+        <h1 class="text-center">MONSTER</h1>
+        <div class="healthbar">
+          <div
+            class="healthbar text-center"
+            style="background-color: green; margin: 0; color: white;"
+            :style="{width: monsterHealth + '%'}">
+            {{ monsterHealth }}
+          </div>
+        </div>
+      </div>
+    </section>
 
-<template v-if="show">
-	<h1>Header</h1>
-	<p>Inside a template</p>
-</template>
-<!-- to hide an element, but not remove it from the DOM, use v-show. It changes the style to display: none -->
-<p v-show="show">I am hidden but not removed from the DOM</p>
-
-<!-- this directive outputs an unordered list of ingredients . If we want to display an index too, we write (i,index) instead of just i -->
-<ul>
-	<li v-for="(i,index) in ingredients" :key="i">{{ i }} ({{ index }})</li>
-</ul>
-<hr>
-<ul>
-	<li v-for="(i,index) in ingredients">{{ i }} ({{ index }})</li>
-</ul>
-<hr>
-<ul>
-	<li v-for="person in persons">{{person.name}}</li>
-</ul>
-<hr>
-<p>Looping through properties of objects</p>
-<ul>
-	<li v-for="person in persons">
-		<span v-for="property in person">{{property}} </span>
-	</li>
-</ul>
-<hr>
-<p>Looping through value-key pairs</p>
-<ul>
-	<li v-for="person in persons">
-		<div v-for="(value, key) in person">{{key}} : {{value}} </div>
-	</li>
-</ul>
-<hr>
-<hr>
-<p>Looping through value-key with indexes</p>
-<ul>
-	<li v-for="person in persons">
-		<div v-for="(value, key, index) in person">{{index}} : {{key}} : {{value}} </div>
-	</li>
-</ul>
-<hr>
-<!-- if we want to use the values outside the ul , we can use a template -->
-<template v-for="(i, index) in ingredients">
-	<h1>{{index}}</h1>
-	<p>{{i}}</p>
-</template>
-<hr>
-<p>Loop through numbers 1-10
-</p>
-<span v-for="n in 10"> {{n}}</span>
-
-<hr>
-<p>Adding elements to the list</p>
-<button @click="ingredients.push('lemon')">Add lemon</button>
-</div>
+		<section class="row controls" v-if="!gameIsRunning">
+			<div class="small-12,columns">
+					<button 
+					id="start-game" 
+					@click="startGame" 
+					v-if="!gameIsRunning">
+					Start new game
+					</button>
+			</div>
+		</section>
+		
+		<section class="row controls" v-else>
+			<div class="small-12 columns">
+				<button 
+				id="attack" 
+				@click="attack" >
+			Attack
+		</button>
+				<button id="specialAttack" @click="specialAttack">Special Attack</button>
+				<button id="heal" @click="heal">heal</button>
+				<button id="give-up" @click="giveUp">Give up</button>
+			</div>
+			
+		</section>
+		<section class="row log" v-if="turns.length>0">
+			<div class="small-12 columns">
+				<ul>
+					<li :class="{'player-turn': t.isPlayer, 'monster-turn': !t.isPlayer}" v-for="t in turns">{{t.text}}</li>
+				</ul>
+			</div>
+		</section>
+		
+	</div>
 <script src="js/main.js" ></script>
 </body>
 
