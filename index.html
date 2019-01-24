@@ -11,63 +11,20 @@
 </head>
 
 <body>
-	<div id="app">
-		<section class="row text-center">
-      <div class="small-6 columns">
-        <h1 class="text-center">YOU</h1>
-        <div class="healthbar">
-          <div
-            class="healthbar text-center"
-            style="background-color: green; margin: 0; color: white;"
-            :style="{width: playerHealth + '%'}">
-            {{ playerHealth }}
-          </div>
-        </div>
-      </div>
-      <div class="small-6 columns">
-        <h1 class="text-center">MONSTER</h1>
-        <div class="healthbar">
-          <div
-            class="healthbar text-center"
-            style="background-color: green; margin: 0; color: white;"
-            :style="{width: monsterHealth + '%'}">
-            {{ monsterHealth }}
-          </div>
-        </div>
-      </div>
-    </section>
-
-		<section class="row controls" v-if="!gameIsRunning">
-			<div class="small-12,columns">
-					<button 
-					id="start-game" 
-					@click="startGame" 
-					v-if="!gameIsRunning">
-					Start new game
-					</button>
-			</div>
-		</section>
-		
-		<section class="row controls" v-else>
-			<div class="small-12 columns">
-				<button 
-				id="attack" 
-				@click="attack" >
-			Attack
-		</button>
-				<button id="specialAttack" @click="specialAttack">Special Attack</button>
-				<button id="heal" @click="heal">heal</button>
-				<button id="give-up" @click="giveUp">Give up</button>
-			</div>
-			
-		</section>
-		<section class="row log" v-if="turns.length>0">
-			<div class="small-12 columns">
-				<ul>
-					<li :class="{'player-turn': t.isPlayer, 'monster-turn': !t.isPlayer}" v-for="t in turns">{{t.text}}</li>
-				</ul>
-			</div>
-		</section>
+	<div id="app1" style="text-align: center">
+		<h1 ref="Heading">{{title}}</h1>
+		<!-- we can use ref key to access an element from outside -->
+		<button @click="show" ref="myButton">Show Paragraph</button>
+		<hr>
+		<p v-if="showParagraph">A sitcom</p>
+	</div>
+	<div id="app2" style="text-align: center">
+		<h1 >{{title}}</h1>
+		<button @click="changeInstance1">Show Paragraph</button>
+		<hr>
+		<p v-if="showParagraph">A comedy</p>
+	</div>
+	<div id="app3">
 		
 	</div>
 <script src="js/main.js" ></script>
