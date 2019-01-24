@@ -12,20 +12,9 @@
 
 <body>
 	<div id="app1" style="text-align: center">
-		<h1 ref="Heading">{{title}}</h1>
-		<!-- we can use ref key to access an element from outside -->
-		<button @click="show" ref="myButton">Show Paragraph</button>
-		<hr>
-		<p v-if="showParagraph">A sitcom</p>
-	</div>
-	<div id="app2" style="text-align: center">
-		<h1 >{{title}}</h1>
-		<button @click="changeInstance1">Show Paragraph</button>
-		<hr>
-		<p v-if="showParagraph">A comedy</p>
-	</div>
-	<div id="app3">
-		
+		<h1>{{title}}</h1>
+		<button @click="title='title was changed'">Update title</button>
+		<button @click="destroy">Destroy</button>
 	</div>
 <script src="js/main.js" ></script>
 </body>
