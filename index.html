@@ -11,10 +11,20 @@
 </head>
 
 <body>
-	<div id="app1" style="text-align: center">
-		<h1>{{title}}</h1>
-		<button @click="title='title was changed'">Update title</button>
-		<button @click="destroy">Destroy</button>
+	<div id="app" style="text-align: center">
+		<!-- we can reuse components anywhere -->
+		<my-cmp ></my-cmp>
+		<hr>
+		<my-cmp></my-cmp>
+
+	</div>
+
+	<div id="app2" style="text-align: center">
+		<!-- we can reuse components anywhere -->
+		<my-cmp ></my-cmp>
+		<hr>
+		<my-cmp></my-cmp>
+		
 	</div>
 <script src="js/main.js" ></script>
 </body>

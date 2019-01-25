@@ -1,40 +1,27 @@
-
-var vm1 = new Vue({
-	el:'#app1',
-	data:{
-		title: 'Friends',
+// creating a reusable component registered globally
+// 1 tag name - unique, 2 - object
+// the data should be a function which returns an object
+// the template contains html code that will be inserted
+// into the <my-cmp></my-cmp> of the dev id="app"
+Vue.component('my-cmp', {
+	data: function() {
+		// it returns a unique object for each component, 
+		// therefore the changes for it will not be global
+		return {status: 'Critical'}
 	},
-	beforeCreate: function(){
-		console.log('beforeCreate');
-	},
-	created: function(){
-		console.log('created');
-	},
-	beforeMount: function(){
-		console.log('beforeMount');
-	},
-	mounted: function(){
-		console.log('mounted');
-	},
-	beforeUpdate: function(){
-		console.log('beforeupdate');
-	},
-	// this methods are executed only when the changes really happen
-	updated: function(){
-		console.log('updated');
-	},
-	beforeDestroy: function(){
-		console.log('beforeDestroy');
-	},
-	destroyed: function(){
-		console.log('destroyed');
-	},
-	// this methods destroys the Vuejs instance
-	// the code will still be in the DOM
-	// but the js logic is removed
+	template: '<p> Server status {{ status}}  <button @click="changeStatus">ChangeStatus</button> </p>',
 	methods:{
-		destroy: function(){
-			this.$destroy();
-		}
-		}
+		changeStatus: function(){
+		this.status='Normal';
+	}
+} 
+});
+
+
+new Vue({
+	el: '#app',
+ });
+
+new Vue({
+	el: '#app2',
  });
